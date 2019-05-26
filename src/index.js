@@ -2,24 +2,47 @@ import readlineSync from 'readline-sync';
 
 const getRandomInt = (min = 1, max = 100) => Math.floor(Math.random() * (max - min)) + min;
 
-export default () => {
+const isEven = () => {
+  const randomNum = getRandomInt();
+  console.log(`Question: ${randomNum}`);
+  return randomNum % 2 === 0 ? 'yes' : 'no';
+};
+
+const calc = () => {
+  const first = getRandomInt();
+  const second = getRandomInt();
+  switch (getRandomInt(1, 4)) {
+    case 1:
+      console.log(`Question: ${first} + ${second}`);
+      return first + second;
+    case 2:
+      console.log(`Question: ${first} - ${second}`);
+      return first - second;
+    case 3:
+      console.log(`Question: ${first} * ${second}`);
+      return first * second;
+  }
+};
+
+export default (game) => {
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!`);
+  const iter = (counter) => {
+    if (counter === 0) {
+      console.log(`Congratulations, ${userName}!`);
+      return;
+    }
 
-  let counter = 1;
-  let isNumEven;
-  while (counter <= 3) {
-    const randomNum = getRandomInt();
-    console.log(`Question: ${randomNum}!`);
-    const answer = readlineSync.question('Your answer: ');
-    isNumEven = randomNum % 2 === 0 ? 'yes' : 'no';
-    if (isNumEven !== answer) {
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${isNumEven}'. Let's try again, ${userName}!`);
+    const rightAnswer = game === 'even' ? isEven() : calc();
+
+    const userAnswer = readlineSync.question('Your answer: ');
+    if (rightAnswer.toString() !== userAnswer) {
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'. Let's try again, ${userName}!`);
       return;
     }
     console.log('Correct!');
-    counter += 1;
-  }
+    return iter(counter - 1);
+  };
 
-  console.log(`Congratulations, ${userName}!`);
+  return iter(3);
 };
