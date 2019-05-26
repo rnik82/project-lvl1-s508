@@ -26,6 +26,23 @@ const calc = () => {
   return undefined;
 };
 
+const greatestDiv = (num1 = getRandomInt(), num2 = getRandomInt()) => {
+  console.log(`Question: ${num1} ${num2}`);
+  const iter = (n1, n2, div) => {
+    if (div === n2) {
+      return 1;
+    }
+    if (n2 % div === 0 && n1 % (n2 / div) === 0) {
+      return (n2 / div);
+    }
+    return iter(n1, n2, div + 1);
+  };
+  if (num1 < num2) {
+    return iter(num2, num1, 1);
+  }
+  return iter(num1, num2, 1);
+};
+
 export default (game) => {
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!`);
@@ -34,8 +51,16 @@ export default (game) => {
       console.log(`Congratulations, ${userName}!`);
       return;
     }
-
-    const rightAnswer = game === 'even' ? isEven() : calc();
+    const rightAnsw = () => {
+      if (game === 'even') {
+        return isEven();
+      }
+      if (game === 'calc') {
+        return calc();
+      }
+      return greatestDiv();
+    };
+    const rightAnswer = rightAnsw();
 
     const userAnswer = readlineSync.question('Your answer: ');
     if (rightAnswer.toString() !== userAnswer) {
