@@ -21,7 +21,9 @@ const calc = () => {
     case 3:
       console.log(`Question: ${first} * ${second}`);
       return first * second;
+    default:
   }
+  return undefined;
 };
 
 export default (game) => {
@@ -41,7 +43,7 @@ export default (game) => {
       return;
     }
     console.log('Correct!');
-    return iter(counter - 1);
+    iter(counter - 1);
   };
 
   return iter(3);
