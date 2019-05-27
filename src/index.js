@@ -43,6 +43,30 @@ const greatestDiv = (num1 = getRandomInt(), num2 = getRandomInt()) => {
   return iter(num1, num2, 1);
 };
 
+const progression = () => {
+  const firstElemOfProgr = getRandomInt();
+  const step = getRandomInt(1, 11);
+  const numbOfHiden = getRandomInt(1, 11);
+  const valueOfHiden = firstElemOfProgr + (numbOfHiden - 1) * step;
+  const iter = (acc, elemOfProgr, lengthOfProgr) => {
+    if (lengthOfProgr === 11) {
+      console.log(`Question: ${acc}`);
+      return valueOfHiden;
+    }
+    if (numbOfHiden === lengthOfProgr) {
+      const acc2 = `${acc} ..`;
+      const elemOfProgr2 = elemOfProgr + step;
+      const lengthOfProgr2 = lengthOfProgr + 1;
+      return iter(acc2, elemOfProgr2, lengthOfProgr2);
+    }
+    const acc2 = `${acc} ${elemOfProgr}`;
+    const elemOfProgr2 = elemOfProgr + step;
+    const lengthOfProgr2 = lengthOfProgr + 1;
+    return iter(acc2, elemOfProgr2, lengthOfProgr2);
+  };
+  return iter('', firstElemOfProgr, 1);
+};
+
 export default (game) => {
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!`);
@@ -58,7 +82,10 @@ export default (game) => {
       if (game === 'calc') {
         return calc();
       }
-      return greatestDiv();
+      if (game === 'div') {
+        return greatestDiv();
+      }
+      return progression();
     };
     const rightAnswer = rightAnsw();
 
