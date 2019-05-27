@@ -1,7 +1,7 @@
 {
   "name": "brain_games_project1",
   "version": "1.0.0",
-  "description": "project1",
+  "description": "training_project_hexlet",
   "main": "index.js",
   "bin": {
     "brain-games": "dist/games/brain-games.js",
@@ -19,6 +19,11 @@
     "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
     "prepublishOnly": "npm run build"
   },
+  "keywords": [
+    "brain-games",
+    "hexlet",
+    "firstproject"
+  ],
   "author": "Roman",
   "license": "ISC",
   "devDependencies": {
