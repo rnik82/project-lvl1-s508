@@ -67,6 +67,21 @@ const progression = () => {
   return iter('', firstElemOfProgr, 1);
 };
 
+const isprime = () => {
+  const randomNum = getRandomInt();
+  console.log(`Question: ${randomNum}`);
+  if (randomNum === 1) {
+    return 'no';
+  }
+  const iter = (divisor) => {
+    if (divisor > randomNum / 2) {
+      return 'yes';
+    }
+    return randomNum % divisor === 0 ? 'no' : iter(divisor + 1);
+  };
+  return iter(2);
+};
+
 export default (game) => {
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!`);
@@ -85,7 +100,10 @@ export default (game) => {
       if (game === 'div') {
         return greatestDiv();
       }
-      return progression();
+      if (game === 'progr') {
+        return progression();
+      }
+      return isprime();
     };
     const rightAnswer = rightAnsw();
 
