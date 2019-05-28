@@ -31,19 +31,18 @@ export default (game) => {
       return;
     }
     const rightAnsw = () => {
-      if (game === 'even') {
-        return isEven();
+      switch (game) {
+        case 'even':
+          return isEven();
+        case 'calc':
+          return calculate();
+        case 'div':
+          return greatestDiv();
+        case 'progr':
+          return progression();
+        default:
+          return isPrime();
       }
-      if (game === 'calc') {
-        return calculate();
-      }
-      if (game === 'div') {
-        return greatestDiv();
-      }
-      if (game === 'progr') {
-        return progression();
-      }
-      return isPrime();
     };
     const rightAnswer = rightAnsw();
     const userAnswer = readlineSync.question('Your answer: ');
