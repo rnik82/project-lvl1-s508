@@ -2,9 +2,7 @@
   "name": "brain_games_project1",
   "version": "1.0.0",
   "description": "training_project_hexlet",
-  "main": "index.js",
   "bin": {
-    "brain-games": "dist/games/brain-games.js",
     "brain-even": "dist/games/brain-even.js",
     "brain-calc": "dist/games/brain-calc.js",
     "brain-gcd": "dist/games/brain-gcd.js",
