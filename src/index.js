@@ -20,10 +20,8 @@ export default (game) => {
     case 'progr':
       console.log('What number is missing in the progression?');
       break;
-    case 'prime':
-      console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
-      break;
     default:
+      console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
   }
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!`);
@@ -45,10 +43,12 @@ export default (game) => {
       if (game === 'progr') {
         return progression();
       }
-      return isPrime();
+      if (game === 'prime') {
+        return isPrime();
+      }
+      return '';
     };
     const rightAnswer = rightAnsw();
-
     const userAnswer = readlineSync.question('Your answer: ');
     if (rightAnswer.toString() !== userAnswer) {
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'. Let's try again, ${userName}!`);
@@ -57,6 +57,5 @@ export default (game) => {
     console.log('Correct!');
     iter(counter - 1);
   };
-
   return iter(3);
 };
