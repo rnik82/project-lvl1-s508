@@ -43,10 +43,7 @@ export default (game) => {
       if (game === 'progr') {
         return progression();
       }
-      if (game === 'prime') {
-        return isPrime();
-      }
-      return '';
+      return isPrime();
     };
     const rightAnswer = rightAnsw();
     const userAnswer = readlineSync.question('Your answer: ');
