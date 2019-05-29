@@ -1,16 +1,20 @@
-import getRandomInt from './getRandomInt';
+import { cons } from 'hexlet-pairs';
+import getRandomInt from '../getRandomInt';
+import game from '..';
 
-export default () => {
+const ruleOfGame = 'What number is missing in the progression?';
+
+const parametersOfGame = () => {
   const firstElemOfProgr = getRandomInt();
   const step = getRandomInt(1, 11);
-  const numbOfHiden = getRandomInt(1, 11);
-  const valueOfHiden = firstElemOfProgr + (numbOfHiden - 1) * step;
+  const numberOfHidenElement = getRandomInt(1, 11);
+  const valueOfHiden = firstElemOfProgr + (numberOfHidenElement - 1) * step;
   const iter = (acc, elemOfProgr, lengthOfProgr) => {
     if (lengthOfProgr === 11) {
-      console.log(`Question: ${acc}`);
-      return valueOfHiden;
+      const question = `${acc}`;
+      return cons(question, valueOfHiden.toString());
     }
-    if (numbOfHiden === lengthOfProgr) {
+    if (numberOfHidenElement === lengthOfProgr) {
       const acc2 = `${acc} ..`;
       const elemOfProgr2 = elemOfProgr + step;
       const lengthOfProgr2 = lengthOfProgr + 1;
@@ -23,3 +27,5 @@ export default () => {
   };
   return iter('', firstElemOfProgr, 1);
 };
+
+export default () => game(parametersOfGame, ruleOfGame);
