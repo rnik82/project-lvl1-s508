@@ -4,21 +4,17 @@ import game from '..';
 
 const ruleOfGame = 'Find the greatest common divisor of given numbers.';
 
-const parametersOfGame = (num1 = getRandomInt(), num2 = getRandomInt()) => {
-  const question = `${num1} ${num2}`;
-  const iter = (n1, n2, div) => {
-    if (div === n2) {
-      return cons(question, '1');
+const parametersOfGame = () => {
+  const randomNum1 = getRandomInt();
+  const randomNum2 = getRandomInt();
+  const question = `${randomNum1} ${randomNum2}`;
+  const findGsd = (n1, n2) => {
+    if (n2 === 0) {
+      return cons(question, n1.toString());
     }
-    if (n2 % div === 0 && n1 % (n2 / div) === 0) {
-      return cons(question, (n2 / div).toString());
-    }
-    return iter(n1, n2, div + 1);
+    return findGsd(n2, n1 % n2);
   };
-  if (num1 < num2) {
-    return iter(num2, num1, 1);
-  }
-  return iter(num1, num2, 1);
+  return findGsd(randomNum1, randomNum2);
 };
 
 export default () => game(parametersOfGame, ruleOfGame);
