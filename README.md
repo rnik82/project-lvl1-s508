@@ -3,7 +3,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/496837eb6a2823fbd1ef/maintainability)](https://codeclimate.com/github/rnik82/project-lvl1-s508/maintainability)
 [![Build Status](https://travis-ci.com/rnik82/project-lvl1-s508.svg?branch=master)](https://travis-ci.com/rnik82/project-lvl1-s508)
 
-## BrainGames:
+# BrainGames
 
 ## To install:
 
