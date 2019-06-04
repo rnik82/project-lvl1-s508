@@ -13,19 +13,19 @@
 
 	brain-even
 
-https://asciinema.org/a/248053
+<a href="https://asciinema.org/a/248053" target="_blank"><img src="https://asciinema.org/a/248053.svg" /></a>
 
 	brain-calc
 
-https://asciinema.org/a/248405
+<a href="https://asciinema.org/a/248405" target="_blank"><img src="https://asciinema.org/a/248405.svg" /></a>
 
 	brain-gcd
 
-https://asciinema.org/a/248458
+<a href="https://asciinema.org/a/248458" target="_blank"><img src="https://asciinema.org/a/248458.svg" /></a>
 
 	brain-progression
 
-https://asciinema.org/a/248681
+<a href="https://asciinema.org/a/248681" target="_blank"><img src="https://asciinema.org/a/248681.svg" /></a>
 
 	brain-prime
 
