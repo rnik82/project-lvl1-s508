@@ -5,7 +5,7 @@
 
 ## BrainGames:
 
-#### To install:
+## To install:
 
 	sudo npm install -g brain_games_s508
 
@@ -13,7 +13,7 @@
 
 	brain-even
 
-[![asciicast](https://asciinema.org/a/j8YiZ1ctiweqYZ0W6EjOc0lmk)]
+<script id="asciicast-j8YiZ1ctiweqYZ0W6EjOc0lmk" src="https://asciinema.org/a/j8YiZ1ctiweqYZ0W6EjOc0lmk.js" async></script>
 
 	brain-calc
 
