@@ -29,4 +29,4 @@ https://asciinema.org/a/248681
 
 	brain-prime
 
-https://asciinema.org/a/248687
+<script id="asciicast-248687" src="https://asciinema.org/a/248687.js" async></script>
