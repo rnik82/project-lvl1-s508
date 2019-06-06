@@ -1,14 +1,14 @@
 import { cons } from 'hexlet-pairs';
 import getRandomInt from '../getRandomInt';
-import game from '..';
+import play from '..';
 
 const description = 'Find the greatest common divisor of given numbers.';
 
-const findGcd = (n1, n2) => {
-  if (n2 === 0) {
-    return n1;
+const findGcd = (a, b) => {
+  if (b === 0) {
+    return a;
   }
-  return findGcd(n2, n1 % n2);
+  return findGcd(b, a % b);
 };
 
 const getParameters = () => {
@@ -19,4 +19,4 @@ const getParameters = () => {
   return cons(question, rightAnswer.toString());
 };
 
-export default () => game(getParameters, description);
+export default () => play(getParameters, description);

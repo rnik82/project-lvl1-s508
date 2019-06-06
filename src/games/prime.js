@@ -1,11 +1,11 @@
 import { cons } from 'hexlet-pairs';
 import getRandomInt from '../getRandomInt';
-import game from '..';
+import play from '..';
 
 const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const isPrime = (number) => {
-  if (number === 1) {
+  if (number < 2) {
     return false;
   }
   const iter = (divisor) => {
@@ -23,4 +23,4 @@ const getParameters = () => {
   return isPrime(randomNumber) ? cons(question, 'yes') : cons(question, 'no');
 };
 
-export default () => game(getParameters, description);
+export default () => play(getParameters, description);
