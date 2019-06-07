@@ -6,25 +6,29 @@ const description = 'What is the result of the expression?';
 
 const operations = ['+', '-', '*'];
 
-const getParameters = () => {
-  const firstNum = getRandomInt();
-  const secondNum = getRandomInt();
-  const randomOperation = operations[getRandomInt(0, 3)];
+const getDataGame = () => {
+  const number1 = getRandomInt();
+  const number2 = getRandomInt();
+  const radomIndexOfOperation = getRandomInt(0, operations.length);
+  const randomOperation = operations[radomIndexOfOperation];
 
-  const question = `${firstNum} ${randomOperation} ${secondNum}`;
+  const question = `${number1} ${randomOperation} ${number2}`;
 
-  if (randomOperation === '+') {
-    const rightAnswer = firstNum + secondNum;
-    return cons(question, rightAnswer.toString());
+  let rightAnswer;
+  switch (randomOperation) {
+    case '+':
+      rightAnswer = number1 + number2;
+      break;
+    case '-':
+      rightAnswer = number1 - number2;
+      break;
+    case '*':
+      rightAnswer = number1 * number2;
+      break;
+    default:
+      break;
   }
-
-  if (randomOperation === '-') {
-    const rightAnswer = firstNum - secondNum;
-    return cons(question, rightAnswer.toString());
-  }
-
-  const rightAnswer = firstNum * secondNum;
   return cons(question, rightAnswer.toString());
 };
 
-export default () => play(getParameters, description);
+export default () => play(getDataGame, description);

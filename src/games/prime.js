@@ -17,10 +17,10 @@ const isPrime = (number) => {
   return iter(2);
 };
 
-const getParameters = () => {
-  const randomNumber = getRandomInt();
-  const question = `${randomNumber}`;
-  return isPrime(randomNumber) ? cons(question, 'yes') : cons(question, 'no');
+const getDataGame = () => {
+  const question = getRandomInt();
+  const rightAnswer = isPrime(question) ? 'yes' : 'no';
+  return cons(question, rightAnswer);
 };
 
-export default () => play(getParameters, description);
+export default () => play(getDataGame, description);

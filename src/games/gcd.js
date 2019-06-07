@@ -11,7 +11,7 @@ const findGcd = (a, b) => {
   return findGcd(b, a % b);
 };
 
-const getParameters = () => {
+const getDataGame = () => {
   const randomNum1 = getRandomInt();
   const randomNum2 = getRandomInt();
   const question = `${randomNum1} ${randomNum2}`;
@@ -19,4 +19,4 @@ const getParameters = () => {
   return cons(question, rightAnswer.toString());
 };
 
-export default () => play(getParameters, description);
+export default () => play(getDataGame, description);

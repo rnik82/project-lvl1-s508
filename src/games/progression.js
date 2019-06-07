@@ -6,29 +6,25 @@ const description = 'What number is missing in the progression?';
 
 const progressionLength = 10;
 
-const getProgression = (acc, curentElement, length, iHidenElement, step) => {
-  if (length > progressionLength) {
-    return acc;
+const getQuestion = (first, step, index) => {
+  let acc = '';
+  for (let i = 0; i < progressionLength; i += 1) {
+    if (i === index) {
+      acc = `${acc} ..`;
+    } else {
+      acc = `${acc} ${first + step * i}`;
+    }
   }
-  if (iHidenElement === length) {
-    const acc2 = `${acc} ..`;
-    const elemOfProgr2 = curentElement + step;
-    const length2 = length + 1;
-    return getProgression(acc2, elemOfProgr2, length2, iHidenElement, step);
-  }
-  const acc2 = `${acc} ${curentElement}`;
-  const elemOfProgr2 = curentElement + step;
-  const length2 = length + 1;
-  return getProgression(acc2, elemOfProgr2, length2, iHidenElement, step);
+  return acc;
 };
 
-const getParameters = () => {
+const getDataGame = () => {
   const firstElement = getRandomInt();
   const step = getRandomInt(1, 11);
-  const indexHidenElement = getRandomInt(1, progressionLength + 1);
-  const valueOfHidenElement = firstElement + (indexHidenElement - 1) * step;
-  const question = getProgression('', firstElement, 1, indexHidenElement, step);
+  const indexHidenElement = getRandomInt(0, progressionLength);
+  const valueOfHidenElement = firstElement + indexHidenElement * step;
+  const question = getQuestion(firstElement, step, indexHidenElement);
   return cons(question, valueOfHidenElement.toString());
 };
 
-export default () => play(getParameters, description);
+export default () => play(getDataGame, description);
