@@ -20,11 +20,11 @@ const getQuestion = (first, step, index) => {
 
 const getDataGame = () => {
   const firstElement = getRandomInt();
-  const step = getRandomInt(1, 11);
-  const indexHidenElement = getRandomInt(0, progressionLength);
-  const valueOfHidenElement = firstElement + indexHidenElement * step;
+  const step = getRandomInt(1, 10);
+  const indexHidenElement = getRandomInt(0, progressionLength - 1);
+  const rightAnswer = firstElement + indexHidenElement * step;
   const question = getQuestion(firstElement, step, indexHidenElement);
-  return cons(question, valueOfHidenElement.toString());
+  return cons(question, rightAnswer.toString());
 };
 
 export default () => play(getDataGame, description);

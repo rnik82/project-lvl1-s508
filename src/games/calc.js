@@ -9,7 +9,7 @@ const operations = ['+', '-', '*'];
 const getDataGame = () => {
   const number1 = getRandomInt();
   const number2 = getRandomInt();
-  const radomIndexOfOperation = getRandomInt(0, operations.length);
+  const radomIndexOfOperation = getRandomInt(0, operations.length - 1);
   const randomOperation = operations[radomIndexOfOperation];
 
   const question = `${number1} ${randomOperation} ${number2}`;
