@@ -6,10 +6,10 @@ const description = 'Answer "yes" if number even otherwise answer "no".';
 
 const isEven = number => number % 2 === 0;
 
-const getDataGame = () => {
+const getGameData = () => {
   const question = getRandomInt();
   const rightAnswer = isEven(question) ? 'yes' : 'no';
   return cons(question, rightAnswer);
 };
 
-export default () => play(getDataGame, description);
+export default () => play(getGameData, description);

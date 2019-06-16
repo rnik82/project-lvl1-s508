@@ -6,16 +6,16 @@ const description = 'What is the result of the expression?';
 
 const operations = ['+', '-', '*'];
 
-const getDataGame = () => {
+const getGameData = () => {
   const number1 = getRandomInt();
   const number2 = getRandomInt();
   const radomIndexOfOperation = getRandomInt(0, operations.length - 1);
-  const randomOperation = operations[radomIndexOfOperation];
+  const operation = operations[radomIndexOfOperation];
 
-  const question = `${number1} ${randomOperation} ${number2}`;
+  const question = `${number1} ${operation} ${number2}`;
 
   let rightAnswer;
-  switch (randomOperation) {
+  switch (operation) {
     case '+':
       rightAnswer = number1 + number2;
       break;
@@ -31,4 +31,4 @@ const getDataGame = () => {
   return cons(question, rightAnswer.toString());
 };
 
-export default () => play(getDataGame, description);
+export default () => play(getGameData, description);

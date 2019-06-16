@@ -18,7 +18,7 @@ const getQuestion = (first, step, index) => {
   return acc;
 };
 
-const getDataGame = () => {
+const getGameData = () => {
   const firstElement = getRandomInt();
   const step = getRandomInt(1, 10);
   const indexHidenElement = getRandomInt(0, progressionLength - 1);
@@ -27,4 +27,4 @@ const getDataGame = () => {
   return cons(question, rightAnswer.toString());
 };
 
-export default () => play(getDataGame, description);
+export default () => play(getGameData, description);
